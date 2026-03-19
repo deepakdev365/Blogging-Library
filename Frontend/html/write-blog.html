@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write Blog | Blog Library</title>
+    <link rel="stylesheet" href="../css/write.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- 🔹 Navbar -->
+    <div id="navbar"></div>
+
+    <!-- 🔹 Blog Writing Section -->
+    <section class="write-container">
+
+        <!-- Left Side (Editor Form) -->
+        <div class="write-form">
+            <h2>Create a Blog ✍️</h2>
+            <p>Share your ideas with the world</p>
+
+            <form>
+                <input type="text" placeholder="Blog Title" required>
+
+                <select required>
+                    <option value="">Select Category</option>
+                    <option>Technology</option>
+                    <option>Lifestyle</option>
+                    <option>Education</option>
+                    <option>Travel</option>
+                </select>
+
+                <textarea placeholder="Write your blog here..." rows="10" required></textarea>
+
+                <input type="file" accept="image/*">
+
+                <button type="submit" class="btn-primary">Publish Blog</button>
+            </form>
+        </div>
+
+        <!-- Right Side (Image Placeholder) -->
+        <div class="write-image">
+            <img src="../assets/blog-write.png" alt="Write Blog Illustration">
+        </div>
+
+    </section>
+
+    <!-- 🔹 Load Navbar -->
+    <script>
+        fetch("../components/navbar.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("navbar").innerHTML = data;
+            });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+/* 🔹 Reset (optional but safe) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 🔹 Body */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #9fb6c0;
+    color: #151313;
+}
+
+/* 🔹 Layout */
+.write-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px;
+    min-height: 80vh;
+    flex-wrap: wrap;
+}
+
+/* 🔹 Form Card */
+.write-form {
+    background: #f7f7f5;
+    padding: 40px;
+    border-radius: 25px;
+    width: 420px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.write-form h2 {
+    margin-bottom: 10px;
+}
+
+.write-form p {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* 🔹 Form Inputs */
+.write-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.write-form input,
+.write-form select,
+.write-form textarea {
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+}
+
+/* Textarea specific */
+.write-form textarea {
+    resize: none;
+}
+
+/* Focus effect */
+.write-form input:focus,
+.write-form select:focus,
+.write-form textarea:focus {
+    border-color: #ff5835;
+}
+
+/* 🔹 Button */
+.btn-primary {
+    background: #ff5835;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+/* 🔹 Image Section */
+.write-image img {
+    width: 420px;
+    border-radius: 25px;
+}
+
+/* 🔹 Responsive */
+@media (max-width: 768px) {
+    .write-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .write-image img {
+        width: 250px;
+        margin-top: 30px;
+    }
+}
