@@ -61,7 +61,34 @@ body {
 .write-form textarea {
     resize: none;
 }
+/*  Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+}
 
+.logo {
+    font-size: 22px;
+    font-weight: 600;
+}
+.navbar nav{
+    margin-left:auto;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    margin: 0 15px;
+    color: #151313;
+    font-weight: 500;
+    transition: 0.3s;
+    font-size: larger;
+}
+
+.navbar nav a:hover {
+    color: #ff5835;
+}
 /* Focus effect */
 .write-form input:focus,
 .write-form select:focus,

@@ -7,7 +7,34 @@
     min-height: 80vh;
     flex-wrap: wrap;
 }
+/*  Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+}
 
+.logo {
+    font-size: 22px;
+    font-weight: 600;
+}
+.navbar nav{
+    margin-left:auto;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    margin: 0 15px;
+    color: #151313;
+    font-weight: 500;
+    transition: 0.3s;
+    font-size: larger;
+}
+
+.navbar nav a:hover {
+    color: #ff5835;
+}
 /* Form */
 .signup-form {
     background: #f7f7f5;
@@ -57,7 +84,7 @@
 /* Image */
 .signup-image img {
     width: 600px;
-    radius: 20px;
+    border-radius: 20px;
 }
 
 /* Responsive */

@@ -1,0 +1,83 @@
+/* 🔹 Base */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #9fb6c0;
+    margin: 0;
+}
+/*  Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 600;
+}
+.navbar nav{
+    margin-left:auto;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    margin: 0 15px;
+    color: #151313;
+    font-weight: 500;
+    transition: 0.3s;
+    font-size: larger;
+}
+
+.navbar nav a:hover {
+    color: #ff5835;
+}
+/* 🔹 Section */
+.categories-page {
+    padding: 60px;
+}
+
+.categories-page h2 {
+    margin-bottom: 30px;
+}
+
+/* 🔹 Grid Layout */
+.categories-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+/* 🔹 Card */
+.category-card {
+    background: #f7f7f5;
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+/* 🔹 Image */
+.category-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+/* 🔹 Text */
+.category-card h3 {
+    text-align: center;
+    padding: 15px;
+}
+
+/* 🔹 Responsive */
+@media (max-width: 768px) {
+    .categories-page {
+        padding: 30px;
+    }
+}
