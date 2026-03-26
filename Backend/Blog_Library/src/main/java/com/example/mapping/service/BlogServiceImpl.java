@@ -27,7 +27,7 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public List<Blog> getBlogsByCategory(String category) {
-        return blogRepository.findByCategory(category);
+        return blogRepository.findByCategoryExact(category);
     }
 
     @Override

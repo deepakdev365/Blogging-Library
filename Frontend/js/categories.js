@@ -1,52 +1,53 @@
-/* 🔹 Fallback Categories (ALWAYS AVAILABLE) */
-const fallbackCategories = [
-    {
-        name: "Technology",
-        image: "../assets/technology.jpg"
-    },
-    {
-        name: "Lifestyle",
-        image: "../assets/lifestyle.jpg"
-    },
-    {
-        name: "Education",
-        image: "../assets/education.jpg"
-    },
-    {
-        name: "Travel",
-        image: "../assets/travel.jpg"
-    }
+const CATEGORY_LIST = [
+    "technology",
+    "travel",
+    "education",
+    "news",
+    "mountains",
+    "cosmos",
+    "mechanical",
+    "daily life"
 ];
 
-/* 🔹 Render Function */
-function renderCategories(categories) {
-    const container = document.getElementById("categoriesContainer");
-    container.innerHTML = "";
+document.addEventListener("DOMContentLoaded", function () {
 
-    categories.forEach(cat => {
-        const card = document.createElement("div");
-        card.classList.add("category-card");
+    const container = document.getElementById("allCategories");
+    if (!container) return;
 
-        card.innerHTML = `
-            <img src="${cat.image}" alt="${cat.name}">
-            <h3>${cat.name}</h3>
+    container.innerHTML = CATEGORY_LIST.map(cat => {
+
+        // 🔥 only for image naming (safe)
+        const imgName = cat.toLowerCase().replace(/\s+/g, "-");
+
+        return `
+            <div class="category-card" onclick="openCategory('${cat}')">
+
+                <div class="category-image">
+                    <img src="../assets/${imgName}.jpg"
+                         alt="${cat}"
+                         onerror="this.src='../assets/default.jpg'">
+                </div>
+
+                <h3>${capitalize(cat)}</h3>
+
+            </div>
         `;
+    }).join("");
 
-        container.appendChild(card);
-    });
+});
+
+
+// 🔗 Navigate to blogs page (SEND ORIGINAL CATEGORY)
+function openCategory(cat) {
+    const encoded = encodeURIComponent(cat); // 🔥 handles spaces
+    window.location.href = `category-blogs.html?category=${encoded}`;
 }
 
-/* 🔹 Try Backend First */
-fetch("http://localhost:8081/api/categories")
-    .then(res => {
-        if (!res.ok) throw new Error("Backend error");
-        return res.json();
-    })
-    .then(data => {
-        console.log("Loaded from backend");
-        renderCategories(data);
-    })
-    .catch(error => {
-        console.log("Using fallback categories");
-        renderCategories(fallbackCategories);
-    });
+
+// 🔤 Capitalize (multi-word support)
+function capitalize(text) {
+    return text
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+}

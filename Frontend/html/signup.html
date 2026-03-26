@@ -13,7 +13,7 @@
 <body>
 
     <!--  Navbar -->
-    <div id="navbar"></div>
+    <!-- <div id="navbar"></div> -->
 
     <!--  Signup Section -->
     <section class="signup-container">
@@ -23,17 +23,17 @@
             <h2>Create Account</h2>
             <p>Join Blog Library and start your journey 🚀</p>
 
-            <form>
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <input type="password" placeholder="Password" required>
-                <input type="password" placeholder="Confirm Password" required>
+            <form id="signupForm">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="email" id="email" placeholder="Email Address" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
 
-                <button type="submit" class="btn-primary">Sign Up</button>
-            </form>
+    <button type="submit" class="btn-primary">Sign Up</button>
+</form>
 
             <p class="login-link">
-                Already have an account? <a href="#">Login</a>
+                Already have an account? <a href="login.html">Login</a>
             </p>
         </div>
 
@@ -45,13 +45,17 @@
     </section>
 
     <!--  Load Navbar -->
-    <script>
-        fetch("components/navbar.html")
+    <!-- <script>
+        fetch("../components/navbar.html")
             .then(res => res.text())
             .then(data => {
                 document.getElementById("navbar").innerHTML = data;
             });
-    </script>
+    </script> -->
+    <script src="../js/signup.js"></script>
+    <script src="../js/loadComponents.js"></script>
+<script src="../js/auth.js"></script>
+    
 
 </body>
 </html>

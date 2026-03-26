@@ -4,59 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Write Blog | Blog Library</title>
-    <link rel="stylesheet" href="../css/write.css">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="../css/write.css">
+
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- 🔹 Navbar -->
     <div id="navbar"></div>
 
-    <!-- 🔹 Blog Writing Section -->
-    <section class="write-container">
+    <section class="editor-container">
+        <h2>Write Your Blog</h2>
 
-        <!-- Left Side (Editor Form) -->
-        <div class="write-form">
-            <h2>Create a Blog ✍️</h2>
-            <p>Share your ideas with the world</p>
+        <div class="blog-form">
 
-            <form>
-                <input type="text" placeholder="Blog Title" required>
+    <!-- Title -->
+    <input type="text" class="blog-title" placeholder="Enter Blog Title">
 
-                <select required>
-                    <option value="">Select Category</option>
-                    <option>Technology</option>
-                    <option>Lifestyle</option>
-                    <option>Education</option>
-                    <option>Travel</option>
-                </select>
+    <!-- Thumbnail Upload -->
+    <label>Upload Thumbnail</label>
+    <input type="file" id="thumbnailInput" accept="image/*">
 
-                <textarea placeholder="Write your blog here..." rows="10" required></textarea>
+    <!-- Preview -->
+    <img id="thumbnailPreview" style="display:none; width:200px; margin-top:10px; border-radius:10px;">
 
-                <input type="file" accept="image/*">
+    <!-- Category -->
+    <label>Select Category</label>
+    <select id="category">
+        <option value="">Select Category</option>
+        <option value="technology">Technology</option>
+        <option value="lifestyle">Daily-life</option>
+        <option value="education">Education</option>
+        <option value="travel">Travel</option>
+        <option value="travel">News</option>
+        <option value="travel">Mountains</option>
+        <option value="travel">Mechanical</option>
+    </select>
 
-                <button type="submit" class="btn-primary">Publish Blog</button>
-            </form>
-        </div>
+</div>
+        <div id="editor" style = "height: 300px;"></div>
 
-        <!-- Right Side (Image Placeholder) -->
-        <div class="write-image">
-            <img src="../assets/blog-write.png" alt="Write Blog Illustration">
-        </div>
-
+        <button class="btn-primary" onclick="submitBlog()">Publish Blog</button>
     </section>
 
-    <!-- 🔹 Load Navbar -->
-    <script>
-        fetch("../components/navbar.html")
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById("navbar").innerHTML = data;
-            });
-    </script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script src="../js/write.js"></script>
+<script src="../js/loadComponents.js"></script>
+<script src="../js/auth.js"></script>
 
 </body>
+
 </html>

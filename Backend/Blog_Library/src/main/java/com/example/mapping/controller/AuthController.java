@@ -8,7 +8,7 @@ import com.example.mapping.service.UserService;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "localhost://5500")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class AuthController {
 
     @Autowired

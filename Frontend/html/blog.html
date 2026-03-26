@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categories | Blog Library</title>
-<link rel="stylesheet" href="../css/categories.css">
+    <title>Blog | Blog Library</title>
 
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -14,19 +14,27 @@
     <!-- Navbar -->
     <div id="navbar"></div>
 
-    <!-- Page Heading -->
-    <section class="categories-page">
-        <h1>Explore Categories</h1>
+    <!-- Blog Section -->
+    <section class="blog-view">
 
-        <div class="categories-grid" id="allCategories"></div>
+        <h1 id="blogTitle"></h1>
+
+        <p id="blogMeta"></p>
+
+        <div class="blog-thumbnail">
+            <img id="blogImage">
+        </div>
+
+        <div id="blogContent" class="blog-content"></div>
+
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 Blog Library | All Rights Reserved</p>
+        <p>© 2026 Blog Library</p>
     </footer>
 
-    <!-- Navbar Load -->
+    <!-- Load Navbar -->
     <script>
         fetch("../components/navbar.html")
             .then(res => res.text())
@@ -35,7 +43,7 @@
             });
     </script>
 
-    <script src="../js/categories.js"></script>
+    <script src="../js/blog.js"></script>
 
 </body>
 </html>

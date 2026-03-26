@@ -23,8 +23,10 @@
             Discover amazing blogs, share your ideas, and connect with readers
             around the world in Blog Library.
         </p>
-        <button class="btn-primary">Start Reading</button>
-    </div>
+        <button class="btn-primary" onclick="goToCategories()">
+    Start Reading
+</button>
+</div>
 
     <!--  Correct Image -->
     <img src="assets/land.png" alt="Hero Image" class="hero-image">
@@ -32,7 +34,7 @@
        
 
     <!--  Categories -->
-    <section class="categories">
+    <!-- <section class="categories">
         <h2>Popular Categories</h2>
 
         <div class="category-container">
@@ -40,7 +42,7 @@
             <div class="category">Lifestyle</div>
             <div class="category">Education</div>
             <div class="category">Travel</div>
-        </div>
+        </div> -->
     <!-- </section>
      <div class="hero-card">
             <h3>🔥 Trending Blog</h3>
@@ -49,40 +51,37 @@
         </div>
     </section> -->
 
+
+     <section class="slider-section">
+    <div class="slider-header">
+        <h2>Categories</h2>
+        <button class="view-all" onclick="goToCategories()">View All</button>
+        </div>
+
+   <div class="slider" id="categorySlider"></div>
+</section>
+
     <!--  Blog Cards -->
     <section class="blogs">
-        <h2>Latest Blogs</h2>
 
-        <div class="blog-container">
+    <div class="blogs-header">
+        <h2>Blogs</h2>
+        <button class="view-all" onclick="goToBlogs()">View All</button>
+    </div>
 
-            <div class="blog-card yellow">
-                <h3>Creative Writing Tips</h3>
-                <p>Improve your writing skills with simple techniques.</p>
-                <button>Read More</button>
-            </div>
+    <div class="blog-container" id="latestBlogs"></div>
 
-            <div class="blog-card purple">
-                <h3>UI/UX Design Basics</h3>
-                <p>Learn how to design beautiful and modern interfaces.</p>
-                <button>Read More</button>
-            </div>
-
-            <div class="blog-card blue">
-                <h3>Public Speaking Guide</h3>
-                <p>Boost your confidence and communication skills.</p>
-                <button>Read More</button>
-            </div>
-
-        </div>
-    </section>
-
-    <!--  CTA Section -->
-    <section class="cta">
-        <h2>Start your blogging journey today 🚀</h2>
-        <a href="html/write-blog.html">
-    <button class="btn-primary">Create Blog</button>
-</a>
-    </section>
+</section>
+<!-- CTA Section -->
+<section class="cta">
+    <h2>Start your blogging journey today 🚀</h2>
+<br>
+   <div class="cta-buttons">
+    <button class="btn-primary" onclick="handleCreateBlog()">
+        Create Blog
+    </button>
+</div>
+</section>
 
     <!--  Footer -->
     <footer>
@@ -99,4 +98,8 @@
     </script>
 
 </body>
+<script src="js/loadComponents.js"></script>
+<script src="js/auth.js"></script>
+
+<script src="js/index.js"></script>
 </html>

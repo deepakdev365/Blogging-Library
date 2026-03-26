@@ -1,0 +1,179 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.dashboard {
+    display: flex;
+    height: calc(100vh - 80px);
+}
+
+/* Sidebar base */
+.sidebar {
+    width: 70px;
+    background: #9d36dd;
+    color: white;
+    padding: 20px 10px;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+/* Expand on hover */
+.sidebar:hover {
+    width: 220px;
+}
+
+/* Profile */
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Hide text initially */
+.profile-name {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+/* Show text on hover */
+.sidebar:hover .profile-name {
+    opacity: 1;
+}
+
+/* Menu */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sidebar li:hover {
+    background: #ff5835;
+    border-radius: 10px;
+}
+
+/* Icons */
+.icon {
+    font-size: 18px;
+}
+
+/* Hide text initially */
+.text {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+/* Show text on hover */
+.sidebar:hover .text {
+    opacity: 1;
+}
+.dashboard {
+    display: flex;
+}
+
+/* Content adjusts automatically */
+#content {
+    flex: 1;
+    padding: 30px;
+    transition: 0.3s;
+}
+
+/* Post cards */
+.post-card {
+    background: white;
+    padding: 15px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.post-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+
+/*  Navbar */
+.navbar {
+    background-color: #9d36dd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 600;
+}
+.navbar nav{
+    margin-left:auto;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    margin: 0 15px;
+    color: #151313;
+    font-weight: 500;
+    transition: 0.3s;
+    font-size: larger;
+}
+
+.navbar nav a:hover {
+    color: #ff5835;
+}
+
+/*  Buttons */
+.btn {
+    border: 1px solid #151313;
+    background: transparent;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #151313;
+    color: white;
+}
+
+.btn-primary {
+    background: #ff5835;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-secondary {
+    background: #be94f5;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}

@@ -12,14 +12,15 @@ public class Blog {
     private Long id;
 
     private String title;
-    
-    @Column(length = 10000)
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String content;
 
     private String category;
     private LocalDate datePublished;
 
     private int visitCount = 0;
+    private String image;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -75,6 +76,14 @@ public class Blog {
 		this.visitCount = visitCount;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	public User getUser() {
 		return user;
 	}
@@ -83,8 +92,5 @@ public class Blog {
 		this.user = user;
 	}
 
-    // Getters & Setters
-    
-    
-    
+	   
 }
