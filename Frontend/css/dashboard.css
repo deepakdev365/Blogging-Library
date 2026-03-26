@@ -1,21 +1,63 @@
+/* ========================= */
+/* GLOBAL */
+/* ========================= */
+
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    background: #9fb6c0;
 }
+
+/* ========================= */
+/* NAVBAR (MATCH WEBSITE) */
+/* ========================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: transparent;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    margin: 0 15px;
+    color: #151313;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #ff5835;
+}
+
+/* ========================= */
+/* DASHBOARD LAYOUT */
+/* ========================= */
 
 .dashboard {
     display: flex;
     height: calc(100vh - 80px);
 }
 
-/* Sidebar base */
+/* ========================= */
+/* SIDEBAR */
+/* ========================= */
+
 .sidebar {
     width: 70px;
-    background: #9d36dd;
+    background: linear-gradient(180deg, #be94f5, #9d36dd);
     color: white;
     padding: 20px 10px;
     transition: 0.3s;
     overflow: hidden;
+    border-radius: 0 20px 20px 0;
 }
 
 /* Expand on hover */
@@ -27,28 +69,33 @@ body {
 .profile {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 30px;
 }
 
 .profile-img {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
+    border: 2px solid white;
 }
 
-/* Hide text initially */
+/* Hide name initially */
 .profile-name {
     opacity: 0;
     transition: 0.3s;
+    font-weight: 500;
 }
 
-/* Show text on hover */
+/* Show on hover */
 .sidebar:hover .profile-name {
     opacity: 1;
 }
 
-/* Menu */
+/* ========================= */
+/* MENU */
+/* ========================= */
+
 .sidebar ul {
     list-style: none;
     padding: 0;
@@ -61,11 +108,12 @@ body {
     padding: 12px;
     cursor: pointer;
     transition: 0.3s;
+    border-radius: 12px;
 }
 
+/* Hover effect */
 .sidebar li:hover {
-    background: #ff5835;
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
 }
 
 /* Icons */
@@ -73,93 +121,62 @@ body {
     font-size: 18px;
 }
 
-/* Hide text initially */
+/* Text hidden initially */
 .text {
     opacity: 0;
     transition: 0.3s;
 }
 
-/* Show text on hover */
+/* Show text */
 .sidebar:hover .text {
     opacity: 1;
 }
-.dashboard {
-    display: flex;
-}
 
-/* Content adjusts automatically */
+/* ========================= */
+/* MAIN CONTENT */
+/* ========================= */
+
 #content {
     flex: 1;
     padding: 30px;
-    transition: 0.3s;
+    overflow-y: auto;
 }
 
-/* Post cards */
+/* ========================= */
+/* POST CARDS */
+/* ========================= */
+
 .post-card {
-    background: white;
+    background: #f7f7f5;
     padding: 15px;
     border-radius: 20px;
     margin-bottom: 20px;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+.post-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Image */
 .post-card img {
     width: 100%;
     height: 150px;
     object-fit: cover;
     border-radius: 15px;
+    margin-bottom: 10px;
 }
 
-
-/*  Navbar */
-.navbar {
-    background-color: #9d36dd;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 60px;
-}
-
-.logo {
-    font-size: 22px;
-    font-weight: 600;
-}
-.navbar nav{
-    margin-left:auto;
-}
-
-.navbar nav a {
-    text-decoration: none;
-    margin: 0 15px;
-    color: #151313;
-    font-weight: 500;
-    transition: 0.3s;
-    font-size: larger;
-}
-
-.navbar nav a:hover {
-    color: #ff5835;
-}
-
-/*  Buttons */
-.btn {
-    border: 1px solid #151313;
-    background: transparent;
-    padding: 8px 18px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: #151313;
-    color: white;
-}
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
 
 .btn-primary {
     background: #ff5835;
     color: white;
     border: none;
-    padding: 12px 25px;
+    padding: 10px 22px;
     border-radius: 25px;
     cursor: pointer;
     transition: 0.3s;
@@ -172,8 +189,41 @@ body {
 
 .btn-secondary {
     background: #be94f5;
+    color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 20px;
     cursor: pointer;
+}
+
+/* ========================= */
+/* SCROLLBAR (OPTIONAL NICE) */
+/* ========================= */
+
+#content::-webkit-scrollbar {
+    width: 6px;
+}
+
+#content::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 60px;
+    }
+
+    .sidebar:hover {
+        width: 180px;
+    }
+
+    #content {
+        padding: 20px;
+    }
 }

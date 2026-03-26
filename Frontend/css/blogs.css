@@ -105,3 +105,32 @@ body {
     border-radius: 20px;
     cursor: pointer;
 }
+
+
+/* READ MORE BUTTON */
+.read-btn {
+    margin-top: auto;
+    padding: 8px 18px;
+    border-radius: 25px;
+    border: none;
+
+    background: #151313;
+    color: white;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover */
+.read-btn:hover {
+    background: #ff5835;
+    transform: translateY(-2px);
+}
+
+/* Click */
+.read-btn:active {
+    transform: scale(0.95);
+}

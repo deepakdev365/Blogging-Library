@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <h3>${blog.title}</h3>
                     <p>${blog.category}</p>
 
-                    <button onclick="event.stopPropagation(); openBlog(${blog.id})">
+                    <button class="btn-primary" onclick="event.stopPropagation(); openBlog(${blog.id})">
                         Read More
                     </button>
                 `;
