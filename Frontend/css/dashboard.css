@@ -1,3 +1,18 @@
+:root {
+    --bg-color: #9fb6c0;
+    --text-dark: #151313;
+    --primary-color: #ff5835;
+    --secondary-color: #151313;
+    --accent-purple: #be94f5;
+    --accent-dark-purple: #6a1b9a;
+    --sidebar-bg: linear-gradient(135deg, #151313 0%, #2c3e50 100%);
+    --card-bg: #f7f7f5;
+    --border-radius: 20px;
+    --btn-radius: 25px;
+    --shadow: 0 8px 32px rgba(0,0,0,0.15);
+    --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* ========================= */
 /* GLOBAL */
 /* ========================= */
@@ -5,11 +20,12 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: #9fb6c0;
+    background: var(--bg-color);
+    color: var(--text-dark);
 }
 
 /* ========================= */
-/* NAVBAR (MATCH WEBSITE) */
+/* NAVBAR (CONSISTENT) */
 /* ========================= */
 
 .navbar {
@@ -25,16 +41,20 @@ body {
     font-weight: 600;
 }
 
+.navbar nav {
+    margin-left: auto;
+}
+
 .navbar nav a {
     text-decoration: none;
     margin: 0 15px;
-    color: #151313;
+    color: var(--text-dark);
     font-weight: 500;
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 .navbar nav a:hover {
-    color: #ff5835;
+    color: var(--primary-color);
 }
 
 /* ========================= */
@@ -47,125 +67,158 @@ body {
 }
 
 /* ========================= */
-/* SIDEBAR */
+/* PREMIUM SIDEBAR */
 /* ========================= */
 
 .sidebar {
-    width: 70px;
-    background: linear-gradient(180deg, #be94f5, #9d36dd);
-    color: white;
-    padding: 20px 10px;
-    transition: 0.3s;
+    width: 80px;
+    background: var(--sidebar-bg);
+    color: #ffffff;
+    padding: 30px 15px;
+    transition: var(--transition);
     overflow: hidden;
-    border-radius: 0 20px 20px 0;
-}
-
-/* Expand on hover */
-.sidebar:hover {
-    width: 220px;
-}
-
-/* Profile */
-.profile {
+    border-radius: 0 30px 30px 0;
+    box-shadow: 10px 0 30px rgba(0,0,0,0.1);
     display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 30px;
+    flex-direction: column;
+    z-index: 100;
 }
 
-.profile-img {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: 2px solid white;
+.sidebar:hover {
+    width: 240px;
 }
 
-/* Hide name initially */
-.profile-name {
-    opacity: 0;
-    transition: 0.3s;
-    font-weight: 500;
-}
-
-/* Show on hover */
-.sidebar:hover .profile-name {
-    opacity: 1;
-}
-
-/* ========================= */
-/* MENU */
-/* ========================= */
-
+/* Menu */
 .sidebar ul {
     list-style: none;
     padding: 0;
+    margin-top: 20px;
 }
 
 .sidebar li {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 12px;
+    gap: 20px;
+    padding: 15px;
     cursor: pointer;
-    transition: 0.3s;
-    border-radius: 12px;
+    transition: var(--transition);
+    border-radius: 15px;
+    margin-bottom: 8px;
+    white-space: nowrap;
 }
 
-/* Hover effect */
 .sidebar li:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.sidebar li.active {
+    background: var(--primary-color);
+    color: white;
 }
 
 /* Icons */
 .icon {
-    font-size: 18px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 240px; /* To prevent jumping, we align text below */
+    width: 24px;
 }
 
 /* Text hidden initially */
 .text {
     opacity: 0;
-    transition: 0.3s;
+    transition: var(--transition);
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
-/* Show text */
 .sidebar:hover .text {
     opacity: 1;
 }
 
+/* Logout at bottom */
+.sidebar li:last-child {
+    margin-top: auto;
+}
+
 /* ========================= */
-/* MAIN CONTENT */
+/* MAIN CONTENT AREA */
 /* ========================= */
 
 #content {
     flex: 1;
-    padding: 30px;
+    padding: 40px;
     overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+#content h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-weight: 600;
 }
 
 /* ========================= */
-/* POST CARDS */
+/* GRID LAYOUT FOR POSTS */
 /* ========================= */
 
-.post-card {
-    background: #f7f7f5;
-    padding: 15px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    transition: 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
 }
 
-.post-card:hover {
-    transform: translateY(-5px);
+/* ========================= */
+/* PREMIUM BLOG CARDS */
+/* ========================= */
+
+.blog-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-/* Image */
-.post-card img {
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.blog-image {
     width: 100%;
-    height: 150px;
+    height: 180px;
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 15px;
-    margin-bottom: 10px;
+    transition: var(--transition);
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.1);
+}
+
+.blog-details {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-details h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    line-height: 1.4;
 }
 
 /* ========================= */
@@ -173,40 +226,48 @@ body {
 /* ========================= */
 
 .btn-primary {
-    background: #ff5835;
+    background: var(--primary-color);
     color: white;
     border: none;
-    padding: 10px 22px;
-    border-radius: 25px;
+    padding: 12px 28px;
+    border-radius: var(--btn-radius);
     cursor: pointer;
-    transition: 0.3s;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(255, 88, 53, 0.3);
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 88, 53, 0.4);
 }
 
 .btn-secondary {
-    background: #be94f5;
+    background: var(--secondary-color);
     color: white;
     border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
+    padding: 10px 20px;
+    border-radius: 15px;
     cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
 }
 
-/* ========================= */
-/* SCROLLBAR (OPTIONAL NICE) */
-/* ========================= */
-
-#content::-webkit-scrollbar {
-    width: 6px;
+.btn-secondary:hover {
+    background: #333;
 }
 
-#content::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 10px;
+/* Empty States */
+.empty-state {
+    text-align: center;
+    padding: 60px;
+    background: var(--card-bg);
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+}
+
+.empty-state h2 {
+    margin-bottom: 20px;
 }
 
 /* ========================= */
@@ -214,16 +275,16 @@ body {
 /* ========================= */
 
 @media (max-width: 768px) {
-
     .sidebar {
-        width: 60px;
+        width: 70px;
     }
-
     .sidebar:hover {
-        width: 180px;
+        width: 200px;
     }
-
     #content {
         padding: 20px;
     }
-}
+    .navbar {
+        padding: 20px;
+    }
+}

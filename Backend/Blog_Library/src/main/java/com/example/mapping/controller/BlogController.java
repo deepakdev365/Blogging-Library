@@ -43,12 +43,12 @@ public class BlogController {
         return blogService.createBlog(blog);
     }
 
-    // ✅ GET ALL BLOGS
-    @GetMapping("/all")
-    public List<Blog> getAllBlogs() {
-        return blogService.getAllBlogs();
-    }
+				    // ✅ GET ALL BLOGS
+				    @GetMapping("/all")
+				    public List<Blog> getAllBlogs() {
+				        return blogService.getAllBlogs();
 
+				    }
     // ✅ GET BLOGS BY CATEGORY
     @GetMapping("/category/{category}")
     public List<Blog> getBlogsByCategory(@PathVariable String category) {

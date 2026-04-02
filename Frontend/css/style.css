@@ -1,3 +1,18 @@
+:root {
+    --bg-color: #9fb6c0;
+    --text-dark: #151313;
+    --primary-color: #ff5835;
+    --secondary-color: #151313;
+    --accent-purple: #be94f5;
+    --accent-yellow: #fccc42;
+    --accent-blue: #a8d0e6;
+    --card-bg: #f7f7f5;
+    --border-radius: 20px;
+    --btn-radius: 25px;
+    --shadow: 0 5px 15px rgba(0,0,0,0.1);
+    --transition: 0.3s ease;
+}
+
 /* RESET */
 * {
     margin: 0;
@@ -8,8 +23,8 @@
 /* BODY */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #9fb6c0;
-    color: #151313;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
 }
 
 /* COMMON SECTION */

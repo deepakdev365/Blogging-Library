@@ -15,8 +15,16 @@
         <br>
         <div class="blog-container" id="blog-list"></div>
     </section>
-
+<!-- Navbar Load -->
+    <script>
+        fetch("../components/navbar.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("navbar").innerHTML = data;
+            });
+    </script>
     <script src="../js/categoryBlogs.js"></script>
+    <script src="../js/auth.js"></script>
 
 </body>
 </html>

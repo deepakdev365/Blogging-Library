@@ -13,6 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
 function loadSection(section) {
 
     const content = document.getElementById("content");
+    
+    // Update active class in sidebar
+    document.querySelectorAll('.sidebar li').forEach(li => li.classList.remove('active'));
+    const activeLi = document.querySelector(`.sidebar li[onclick*="${section}"]`);
+    if (activeLi) activeLi.classList.add('active');
 
     if (section === "posts") {
         loadPosts();
@@ -20,24 +25,31 @@ function loadSection(section) {
 
     if (section === "create") {
         content.innerHTML = `
-            <h2>Create Blog</h2>
-            <button class="btn-primary" onclick="goToWrite()">Write Blog</button>
+            <div class="empty-state">
+                <h2>Ready to share your thoughts? ✍️</h2>
+                <p style="margin-bottom: 25px; color: #666;">Create a new blog post and reach readers worldwide.</p>
+                <button class="btn-primary" onclick="goToWrite()">Write New Blog</button>
+            </div>
         `;
     }
 
     if (section === "stats") {
         content.innerHTML = `
-            <h2>Stats</h2>
-            <p>Coming soon...</p>
-            <button class="btn-secondary">View Analytics</button>
+            <div class="empty-state">
+                <h2>Analytics Dashboard 📊</h2>
+                <p style="margin-bottom: 25px; color: #666;">Track your blog performance, views, and engagement (Coming Soon).</p>
+                <button class="btn-secondary">View Sample Analytics</button>
+            </div>
         `;
     }
 
     if (section === "comments") {
         content.innerHTML = `
-            <h2>Comments</h2>
-            <p>No comments yet</p>
-            <button class="btn-secondary">View Comments</button>
+            <div class="empty-state">
+                <h2>Reader Comments 💬</h2>
+                <p style="margin-bottom: 25px; color: #666;">Engage with your audience and moderate discussions.</p>
+                <button class="btn-secondary">Check Notifications</button>
+            </div>
         `;
     }
 }
@@ -45,36 +57,41 @@ function loadSection(section) {
 function loadPosts() {
 
     const user = JSON.parse(localStorage.getItem("user"));
+    const content = document.getElementById("content");
+
+    content.innerHTML = '<h2>Your Posts</h2><div class="posts-grid" id="postsGrid">Loading...</div>';
 
     fetch("http://localhost:8081/blogs/all")
         .then(res => res.json())
         .then(data => {
 
             const userPosts = data.filter(blog => blog.user?.id === user.id);
-
- 
- 
- 
-            const content = document.getElementById("content");
+            const postsGrid = document.getElementById("postsGrid");
 
             if (userPosts.length === 0) {
                 content.innerHTML = `
-                    <h2>No posts yet</h2>
-                    <button class="btn-primary" onclick="goToWrite()">Create Blog</button>
+                    <div class="empty-state">
+                        <h2>No posts yet 🕸️</h2>
+                        <p style="margin-bottom: 25px; color: #666;">You haven't published any blogs yet. Start your journey today!</p>
+                        <button class="btn-primary" onclick="goToWrite()">Create Your First Blog</button>
+                    </div>
                 `;
                 return;
             }
 
-            content.innerHTML = userPosts.map(blog => {
+            postsGrid.innerHTML = userPosts.map(blog => {
 
-                // 🔥 Get image from localStorage using key
                 const imgSrc = localStorage.getItem(blog.image);
 
                 return `
-                    <div class="post-card">
-                        <img src="${imgSrc || '../assets/default.jpg'}">
-                        <h3>${blog.title}</h3>
-                        <button class="btn-secondary">View</button>
+                    <div class="blog-card" onclick="openBlog(${blog.id})">
+                        <div class="blog-image">
+                            <img src="${imgSrc || '../assets/default.jpg'}" alt="${blog.title}">
+                        </div>
+                        <div class="blog-details">
+                            <h3>${blog.title}</h3>
+                            <button class="btn-secondary" style="width: 100%;">Edit / View</button>
+                        </div>
                     </div>
                 `;
             }).join("");
@@ -82,8 +99,11 @@ function loadPosts() {
         })
         .catch(() => {
             document.getElementById("content").innerHTML = `
-                <h2>Server not running</h2>
-                <button class="btn-secondary" onclick="loadPosts()">Retry</button>
+                <div class="empty-state">
+                    <h2>Connection Error ⚠️</h2>
+                    <p style="margin-bottom: 25px; color: #666;">We couldn't reach the server. Please check your connection.</p>
+                    <button class="btn-primary" onclick="loadPosts()">Retry Connection</button>
+                </div>
             `;
         });
 }
@@ -95,4 +115,8 @@ function goToWrite() {
 function logout() {
     localStorage.removeItem("user");
     window.location.href = "../index.html";
+}
+
+function openBlog(id) {
+    window.location.href = `../html/blog.html?id=${id}`;
 }

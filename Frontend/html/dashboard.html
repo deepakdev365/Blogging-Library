@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="../css/dashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
@@ -18,36 +20,30 @@
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
 
-    <!-- Profile -->
-    <div class="profile">
-        <img src="../assets/profile.png" class="profile-img">
-        <span class="profile-name">User</span>
-    </div>
-
     <!-- Menu -->
     <ul>
-        <li onclick="loadSection('posts')">
-            <span class="icon">📝</span>
-            <span class="text">Posts</span>
+        <li class="active" onclick="loadSection('posts')">
+            <span class="icon" data-lucide="layout-dashboard"></span>
+            <span class="text">My Posts</span>
         </li>
 
         <li onclick="loadSection('create')">
-            <span class="icon">➕</span>
-            <span class="text">Create</span>
-        </li>
-
-        <li onclick="loadSection('comments')">
-            <span class="icon">💬</span>
-            <span class="text">Comments</span>
+            <span class="icon" data-lucide="plus-circle"></span>
+            <span class="text">Create Blog</span>
         </li>
 
         <li onclick="loadSection('stats')">
-            <span class="icon">📊</span>
-            <span class="text">Stats</span>
+            <span class="icon" data-lucide="bar-chart-3"></span>
+            <span class="text">Analytics</span>
+        </li>
+
+        <li onclick="loadSection('comments')">
+            <span class="icon" data-lucide="message-square"></span>
+            <span class="text">Comments</span>
         </li>
 
         <li onclick="logout()">
-            <span class="icon">🚪</span>
+            <span class="icon" data-lucide="log-out"></span>
             <span class="text">Logout</span>
         </li>
     </ul>
@@ -62,6 +58,10 @@
     <script src="../js/loadComponents.js"></script>
     <script src="../js/dashboard.js"></script>
     <script src="../js/auth.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
 
 </body>
 </html>
